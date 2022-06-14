@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">viaCepKotlin</string>
+    <string name="cep_controller">CEP_CONTROLLER</string>
+    <string name="url_viacep">https://viacep.com.br/ws/</string>
+    <string name="error">Error</string>
+    <string name="error_cep">Error no cep</string>
+    <string name="error_cep_message">"O CEP deve conter 8 numeros"</string>
+
 </resources>

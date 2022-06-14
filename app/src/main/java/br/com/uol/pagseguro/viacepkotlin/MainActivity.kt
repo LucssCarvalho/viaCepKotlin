@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             if (editText.text.toString().length == 8) {
                 val intent = Intent(this, RespActivity::class.java)
-                intent.putExtra("cep", editText.text.toString())
+                intent.putExtra(getString(R.string.cep_controller), editText.text.toString())
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "o cep deve conter 8 numeros", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_cep_message), Toast.LENGTH_SHORT).show()
             }
         }
     }
