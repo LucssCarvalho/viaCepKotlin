@@ -28,7 +28,7 @@ class RespActivity : AppCompatActivity() {
     }
 
     private fun getCep(cep: String?) {
-        val urlCep = "${getString(R.string.cep_controller)}$cep/json/"
+        val urlCep = "${getString(R.string.cep_controller)}$cep"
         doAsync {
             val url = URL(urlCep)
             val urlConnection = url.openConnection() as HttpURLConnection
