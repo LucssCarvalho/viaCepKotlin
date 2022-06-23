@@ -36,7 +36,6 @@ class RespActivity : AppCompatActivity() {
             val content = urlConnection.inputStream.bufferedReader().use(BufferedReader::readText)
             var json = JSONObject(content)
             uiThread {
-                ProgressIndicator().tradeView(binding.pbCep, binding.tvResp)
                 if (json.has(getString(R.string.error))) {
                     binding.tvResp.text = getString(R.string.error_cep)
                 } else {

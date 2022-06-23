@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity(), ViewHome {
         binding.btnSend.setOnClickListener {
             showProgressBar()
             if (binding.etCep.text.toString().length == 8) {
-                val intent = Intent(this, RespActivity::class.java)
-                intent.putExtra(getString(R.string.cep_controller), binding.etCep.text.toString())
-                startActivity(intent)
+//                val intent = Intent(this, RespActivity::class.java)
+//                intent.putExtra(getString(R.string.cep_controller), binding.etCep.text.toString())
+//                startActivity(intent)
             } else {
                 showFailure(getString(R.string.error_cep_message))
             }
