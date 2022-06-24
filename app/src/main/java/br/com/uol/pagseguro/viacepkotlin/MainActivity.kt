@@ -22,22 +22,21 @@ class MainActivity : AppCompatActivity(), ViewHome {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        val dataSource = AddressData()
+        presenter = CepPresenter(this, dataSource)
+        search()
+    }
 
+
+    private fun search() {
         binding.btnSend.setOnClickListener {
-            showProgressBar()
             if (binding.etCep.text.toString().length == 8) {
-                val dataSource = AddressData()
-                presenter = CepPresenter(this, dataSource)
-                startResponseActivity();
-
+                showProgressBar()
+                presenter.search(binding.etCep.text.toString())
             } else {
                 showFailure(getString(R.string.error_cep_message))
             }
         }
-    }
-
-    private fun search() {
-
     }
 
     override fun showProgressBar() {
@@ -52,7 +51,9 @@ class MainActivity : AppCompatActivity(), ViewHome {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     override fun startResponseActivity(address: AddressResponse) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, RespActivity::class.java)
+        intent.putExtra(getString(R.string.cep_controller), address)
+        startActivity(intent)
     }
 
 }
